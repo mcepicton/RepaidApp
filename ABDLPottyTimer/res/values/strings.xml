@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="button_diaper">To cool for skool (Diapers)</string>
+    <string name="button_training_pants">Almost a big kid (Training Pants)</string>
+    <string name="button_big_kid">"Clearly I'm a boss. (Big Kid Undies)"</string>
+    <string name="app_name">ABDL Potty Timer</string>
+    <string name="action_settings">To Drunk to use now.</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="startButton1">Start</string>
+    <string name="outComeButton">"What do I do?!"</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_out_come0">Diapers!</string>
+    <string name="title_activity_out_come2">Training Pants</string>
+    <string name="title_activity_out_come3">Big Kid</string>
+
+</resources>

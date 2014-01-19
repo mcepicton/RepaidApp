@@ -24,7 +24,8 @@ public class OutCome3 extends Activity {
 	EditText editTime1;
 	Button startButton;
 	
-	/*Skip go straight to an outcome */
+	/*Skip go straight to an outcome 
+	 * To Do Instead of having two sets of the same shit, call onFinish here.*/
 	public void outComeButton(View view) {
 		int num;
 		  String outCome = "";
@@ -79,13 +80,15 @@ public class OutCome3 extends Activity {
       		   super(timeVal, interval);
       		  }
       		  
+      		/* Converts tick time to 00:00 need to fix so that 1 min 30 seconds is 01:30 instead of 01:3
+      		   * Currently hidden, maybe though do somthing with onTick later.*/      		  
       		  @Override
       		  public void onTick(long millisUntilFinished) {
-      		   text.setText(""+String.format("%d:%d", 
+      		  /* text.setText(""+String.format("%d:%d", 
       				    TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished),
       				    TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - 
       				    TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))
-      				));
+      				));*/
       		  }
       		  
       		  @Override

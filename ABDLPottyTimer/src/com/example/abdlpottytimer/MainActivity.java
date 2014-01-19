@@ -15,12 +15,14 @@ public class MainActivity extends Activity {
 		    startActivity(intent);
 		}
 	
+	/* Training Pants */
 	public void outcome2(View view) {
 	    // Do something in response to button
 		    Intent intent = new Intent(this, OutCome2.class);
 		    startActivity(intent);
 		}
 	
+	/* Big Kid */
 	public void outcome3(View view) {
 	    // Do something in response to button
 		    Intent intent = new Intent(this, OutCome3.class);

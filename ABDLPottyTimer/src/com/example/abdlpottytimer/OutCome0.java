@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+
+
 public class OutCome0 extends Activity {
 	private CountDownTimer countDownTimer;
 	private boolean timerHasStarted = false;
@@ -24,12 +26,30 @@ public class OutCome0 extends Activity {
 	EditText editTime1;
 	Button startButton;
 	
+	
 	/*Skip go straight to an outcome 
 	 * To Do Instead of having two sets of the same shit, call onFinish here.*/
 		 public void outComeButton(View v){
-  			 ;
-  		 };
-	
+			 int num;
+ 			  String outCome = "";
+ 			  for (int ii = 0; ii < 10; ii++) {
+ 				  num = (int) (Math.random() * 100) % 4;
+
+ 				  switch (num) {
+ 				  case 0:
+ 				  case 1:
+ 					  outCome = "Clearly you need that diaper, have an 'accident'.";
+ 					  break;
+ 				  case 2:
+ 					  outCome = "You can do it! Do a potty dance for a minute then give have an accident.";
+ 					  break;
+ 				  case 3:
+ 					  outCome = "Wow maybe you should be in pull ups! Tell your big you need to go potty and fast!";
+ 					  break;
+            }
+  		 }
+ 			  text.setText(outCome);
+		 }
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -49,7 +69,7 @@ public class OutCome0 extends Activity {
                 	imm.hideSoftInputFromWindow(startButton.getWindowToken(), 0);
                 	
                 if (!timerHasStarted) {
-                    countDownTimer = new MyCountDownTimer(timeVal * 1000 * 60, interval);
+                    countDownTimer = new MyCountDownTimer(timeVal * 1000 * 60  , interval);
                     text.setText(text.getText() + String.valueOf(timeVal / 1000));
                     countDownTimer.start();
                     timerHasStarted = true;
@@ -65,18 +85,15 @@ public class OutCome0 extends Activity {
       		   super(timeVal, interval);
       		  }
       		 
-      		 public void outComeButton(View v){
-      			 this.onFinish();
-      		 };
       		  /* Converts tick time to 00:00 need to fix so that 1 min 30 seconds is 01:30 instead of 01:3
       		   * Currently hidden, maybe though do somthing with onTick later.*/      		  
       		  @Override
       		  public void onTick(long millisUntilFinished) {
-      		  /* text.setText(""+String.format("%d:%d", 
+      		   text.setText(""+String.format("%d:%d", 
       				    TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished),
       				    TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - 
       				    TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))
-      				));*/
+      				));
       		  }
       		  
       		  @Override
@@ -100,7 +117,8 @@ public class OutCome0 extends Activity {
       					  break;
                  }
       				text.setText(outCome);
-             }
+      			  }
+             
       		   Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
       		   // Vibrate for 5 seconds
       		   v.vibrate(5000);

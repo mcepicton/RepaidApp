@@ -82,11 +82,11 @@ public class OutCome2 extends Activity {
       		   * Currently hidden, maybe though do somthing with onTick later.*/      		  
       		  @Override
       		  public void onTick(long millisUntilFinished) {
-      		  /* text.setText(""+String.format("%d:%d", 
+      		   text.setText(""+String.format("%d:%d", 
       				    TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished),
       				    TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - 
       				    TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))
-      				));*/
+      				));
       		  }
       		  
       		  @Override

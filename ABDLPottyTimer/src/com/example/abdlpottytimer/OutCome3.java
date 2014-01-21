@@ -80,15 +80,15 @@ public class OutCome3 extends Activity {
       		   super(timeVal, interval);
       		  }
       		  
-      		/* Converts tick time to 00:00 need to fix so that 1 min 30 seconds is 01:30 instead of 01:3
-      		   * Currently hidden, maybe though do somthing with onTick later.*/      		  
+      		/* Converts tick time to 00:00 need to fix so that 1 min 30 seconds is 01:30 instead of 01:3*/
+      		         		  
       		  @Override
       		  public void onTick(long millisUntilFinished) {
-      		  /* text.setText(""+String.format("%d:%d", 
+      		   text.setText(""+String.format("%d:%d", 
       				    TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished),
       				    TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - 
       				    TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))
-      				));*/
+      				));
       		  }
       		  
       		  @Override

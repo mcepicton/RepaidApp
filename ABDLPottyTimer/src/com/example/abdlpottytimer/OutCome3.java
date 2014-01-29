@@ -19,34 +19,36 @@ public class OutCome3 extends Activity {
 
 	private CountDownTimer countDownTimer;
 	private boolean timerHasStarted = false;
-	public TextView text;
+	public static TextView text;
 	private final long interval = 1 * 1000;
 	EditText editTime1;
 	Button startButton;
 	
-	/*Skip go straight to an outcome 
-	 * To Do Instead of having two sets of the same shit, call onFinish here.*/
-	public void outComeButton(View view) {
-		int num;
-		  String outCome = "";
-		  for (int ii = 0; ii < 10; ii++) {
-			  num = (int) (Math.random() * 100) % 4;
-
-			  switch (num) {
-			  case 0:
-				  outCome = "Bad Baby!!! Wet yourself!";
-				  break;
-			  case 1:
-				  outCome = "You can make it? Do a potty dance for a minute then give have an accident.";
-				  break;
-			  case 2:
-			  case 3:
-				  outCome = "Such a big kid! Tell your big you need to go potty and fast!";
-				  break;
-       }
-			text.setText(outCome);
-		  }
-        }
+	public static void commonCode() {
+	    int num;
+	    String outCome = "";
+	    for (int ii = 0; ii < 10; ii++) {
+	      num = (int) (Math.random() * 100) % 4;
+	      switch (num) {
+		  case 0:
+			  outCome = " Have an accident, clearly you shouldn't be in pullups";
+			  break;
+		  case 1:
+		  case 2:
+			  outCome = "Don't make the stars fade! Do a potty dance for a minute then give have an accident.";
+			  break;
+		  case 3:
+			  outCome = "Good baby! Tell your big you need to go potty and fast!";
+			  break;
+	      }
+	      text.setText(outCome);
+	    }
+	  }
+	
+	  public void outComeButton(View v){
+	    OutCome2.commonCode();
+	  }
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -93,32 +95,14 @@ public class OutCome3 extends Activity {
       		  
       		  @Override
       		  /* Finish event */
-      		  public void onFinish() {
-      			  int num;
-      			  String outCome = "";
-      			  for (int ii = 0; ii < 10; ii++) {
-      				  num = (int) (Math.random() * 100) % 4;
-
-      				  switch (num) {
-      				  		case 0:
-      				  			outCome = "Bad Baby!!! Wet yourself!";
-      				  			break;
-      				  		case 1:
-      				  			outCome = "You can make it? Do a potty dance for a minute then give have an accident.";
-      				  			break;
-      				  		case 2:
-      				  		case 3:
-      				  			outCome = "Such a big kid! Tell your big you need to go potty and fast!";
-      				  			break;
-                 }
-      				text.setText(outCome);
+              public void onFinish() {
+                  OutCome3.commonCode();
+          	    Vibrator vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+          	    // Vibrate for 5 seconds
+          	    vib.vibrate(5000);
+              }
              }
-      		   Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-      		   // Vibrate for 5 seconds
-      		   v.vibrate(5000);
-      		  }
-      		 }
-        	});
+            });
     }
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

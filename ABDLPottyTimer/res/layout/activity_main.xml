@@ -9,35 +9,34 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-	<Button
-        android:id="@+id/diaper"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="40dp"
-        android:onClick="outcome0"
-        android:text="@string/button_diaper" />
-    
     <Button
         android:id="@+id/trainingPants"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/diaper"
+        android:layout_above="@+id/bigKid"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="24dp"
-        android:onClick="outcome2"
-        android:text="@string/button_training_pants" />
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/training_pants_b"
+        android:onClick="outcome2" />
+
+    <Button
+        android:id="@+id/diaper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/trainingPants"
+        android:layout_alignLeft="@+id/trainingPants"
+        android:layout_marginBottom="21dp"
+        android:background="@drawable/diaper_b"
+        android:onClick="outcome0" />
 
     <Button
         android:id="@+id/bigKid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:onClick="outcome3"
-        android:text="@string/button_big_kid" />
+        android:layout_alignLeft="@+id/trainingPants"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="46dp"
+        android:background="@drawable/big_kid_b"
+        android:onClick="outcome3" />
 
 </RelativeLayout>

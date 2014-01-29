@@ -1,7 +1,5 @@
 package com.example.abdlpottytimer;
-/*Diaper*/
-/* Comments for all three outcomes will be here until more of a difference is made between the outcomes*/
-
+// Diaper
 import java.util.concurrent.TimeUnit;
 import android.app.Activity;
 import android.content.Context;
@@ -16,40 +14,38 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-
-
 public class OutCome0 extends Activity {
 	private CountDownTimer countDownTimer;
 	private boolean timerHasStarted = false;
-	public TextView text;
+	public static TextView text;
 	private final long interval = 1 * 1000;
 	EditText editTime1;
 	Button startButton;
 	
-	
-	/*Skip go straight to an outcome 
-	 * To Do Instead of having two sets of the same shit, call onFinish here.*/
-		 public void outComeButton(View v){
-			 int num;
- 			  String outCome = "";
- 			  for (int ii = 0; ii < 10; ii++) {
- 				  num = (int) (Math.random() * 100) % 4;
-
- 				  switch (num) {
- 				  case 0:
- 				  case 1:
- 					  outCome = "Clearly you need that diaper, have an 'accident'.";
- 					  break;
- 				  case 2:
- 					  outCome = "You can do it! Do a potty dance for a minute then give have an accident.";
- 					  break;
- 				  case 3:
- 					  outCome = "Wow maybe you should be in pull ups! Tell your big you need to go potty and fast!";
- 					  break;
-            }
-  		 }
- 			  text.setText(outCome);
-		 }
+	public static void commonCode() {
+	    int num;
+	    String outCome = "";
+	    for (int ii = 0; ii < 10; ii++) {
+	      num = (int) (Math.random() * 100) % 4;
+	      switch (num) {
+	      case 0:
+          case 1:
+                  outCome = "Clearly you need that diaper, have an 'accident'.";
+                  break;
+          case 2:
+                  outCome = "You can do it! Do a potty dance for a minute then give have an accident.";
+                  break;
+          case 3:
+                  outCome = "Wow maybe you should be in pull ups! Tell your big you need to go potty and fast!";
+                  break;
+	      }
+	      text.setText(outCome);
+	    }
+	  }
+	  public void outComeButton(View v){
+	    OutCome0.commonCode();
+	  }
+	  
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -96,36 +92,17 @@ public class OutCome0 extends Activity {
       				));
       		  }
       		  
-      		  @Override
-      		  /* Finish event  Need to make it so that videos can be played if solo mode.*/
-      		  public void onFinish() {
-      			  int num;
-      			  String outCome = "";
-      			  for (int ii = 0; ii < 10; ii++) {
-      				  num = (int) (Math.random() * 100) % 4;
-
-      				  switch (num) {
-      				  case 0:
-      				  case 1:
-      					  outCome = "Clearly you need that diaper, have an 'accident'.";
-      					  break;
-      				  case 2:
-      					  outCome = "You can do it! Do a potty dance for a minute then give have an accident.";
-      					  break;
-      				  case 3:
-      					  outCome = "Wow maybe you should be in pull ups! Tell your big you need to go potty and fast!";
-      					  break;
-                 }
-      				text.setText(outCome);
-      			  }
-             
-      		   Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-      		   // Vibrate for 5 seconds
-      		   v.vibrate(5000);
-      		  }
-      		 }
-        	});
-    }
+      		@Override
+            /* Finish event  Need to make it so that videos can be played if solo mode.*/
+            public void onFinish() {
+                OutCome0.commonCode();
+        	    Vibrator vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        	    // Vibrate for 5 seconds
+        	    vib.vibrate(5000);
+            }
+           }
+          });
+  }
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
